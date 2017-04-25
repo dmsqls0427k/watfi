@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.danae.wat2340">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Controller.WelcomeScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+          The API key for Google Maps-based APIs is defined as a string resource.
+          (See the file "res/values/google_maps_api.xml").
+          Note that the API key is linked to the encryption key used to sign the APK.
+          You need a different API key for each encryption key, including the release key that is used to
+          sign the APK for publishing.
+          You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCMvzgEeWD0c4_m0K93Z0F80BYK7UkSkH4" />
+
+        <activity
+            android:name=".Controller.MapsActivity"
+            android:label="map" />
+        <activity android:name=".Controller.LoginActivity" />
+        <activity android:name=".Controller.Registration" />
+        <activity android:name=".Controller.ManagerMainActivity" />
+        <activity android:name=".Controller.UserMainActivity" />
+        <activity android:name=".Controller.ViewProfile" />
+        <activity android:name=".Controller.viewSourceReport" />
+        <activity android:name=".Controller.AddSourceReport" />
+        <activity android:name=".Controller.EditSourceReport" />
+        <activity android:name=".Controller.AddPurityReport" />
+        App Indexing. See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Controller.viewPurityReport" />
+        <activity android:name=".Controller.EditPurityReport" />
+        <activity android:name=".Controller.AddSurveyReport" />
+        <activity android:name=".Controller.ViewSurveyReport" />
+        <activity android:name=".Controller.EditSurveyReport" />
+        <activity android:name=".Controller.MapSurveyActivity" />
+        <activity android:name=".Controller.ChartActivity" />
+        <activity android:name=".Controller.SettingGraph"></activity>
+    </application>
+
+</manifest>

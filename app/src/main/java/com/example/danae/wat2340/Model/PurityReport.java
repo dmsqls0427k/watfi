@@ -29,6 +29,7 @@ public class PurityReport {
      * @param name name of publisher
      * @param location location of the water
      * @param condition condition of the water
+     * @param virus virus name if exist
      * @param virusPPM measured virus ppm of water
      * @param contaminantPPM measured contaminant ppm of water
      */
@@ -50,7 +51,7 @@ public class PurityReport {
         return date;
     }
 
-
+    public String getVirus() {return virus;}
     public int getId() {
         return id;
     }

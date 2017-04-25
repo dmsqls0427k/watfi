@@ -4,13 +4,13 @@ package com.example.danae.wat2340.Controller;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.Button;
 import android.widget.ListView;
-        import android.widget.Toast;
+import android.widget.Toast;
 
-        import com.example.danae.wat2340.Model.PurityReport;
+import com.example.danae.wat2340.Model.PurityReport;
 import com.example.danae.wat2340.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,46 +75,48 @@ public class viewPurityReport extends AppCompatActivity {
 
                     }
                 });
-            }
 
-        });
+                List<String> reportString = new ArrayList<>();
+                for (PurityReport r : reportList) {
+                    reportString.add(r.toString());
+                }
 
-        List<String> reportString = new ArrayList<>();
-        for (PurityReport r : reportList) {
-            reportString.add(r.toString());
-        }
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(viewPurityReport.this,
+                        android.R.layout.simple_list_item_1, reportString);
+                lv.setAdapter(arrayAdapter);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(viewPurityReport.this,
-                android.R.layout.simple_list_item_1, reportString);
-        lv.setAdapter(arrayAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    final int position, long id) {
-                placed = position;
-                databaseReference.child("purity").addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Iterable<DataSnapshot> children = dataSnapshot.getChildren();
-                        PurityReport selected = reportList.get(placed);
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            final int position, long id) {
+                        placed = position;
+                        databaseReference.child("purity").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+                                PurityReport selected = reportList.get(placed);
 
-                        for (DataSnapshot child : children) {
-                            PurityReport childValue = child.getValue(PurityReport.class);
-                            if (childValue.getId() == selected.getId()) {
-                                purityReport = childValue;
+                                for (DataSnapshot child : children) {
+                                    PurityReport childValue = child.getValue(PurityReport.class);
+                                    if (childValue.getId() == selected.getId()) {
+                                        purityReport = childValue;
+                                    }
+                                }
                             }
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
 
+                            }
+                        });
+                        startActivity(new Intent(getApplicationContext(), EditPurityReport.class));
                     }
                 });
-                startActivity(new Intent(getApplicationContext(), EditPurityReport.class));
             }
+
         });
+
+
 
     }
 }

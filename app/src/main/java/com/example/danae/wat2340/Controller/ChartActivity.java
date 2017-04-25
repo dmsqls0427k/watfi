@@ -26,16 +26,18 @@ import java.util.List;
 import java.util.Random;
 
 public class ChartActivity extends AppCompatActivity {
-    private static int year = 2017;
+    public static int year = 2017;
     private Button settings;
-    private static String virus = "Norovirus";
+    public static String virus = "Norovirus";
     private GoogleApiClient client;
     private List<Data> data = new ArrayList<>();
+    public static List<String> vList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
         settings = (Button) findViewById(R.id.graphSettings);
+        vList = new ArrayList<>();
         LineChart lineChart = (LineChart) findViewById(R.id.chart);
         int[] reportNum = new int[12];
         //dummy
@@ -45,9 +47,13 @@ public class ChartActivity extends AppCompatActivity {
         }
 
         for (PurityReport r: viewPurityReport.purityReports) {
+            String v = r.getVirus();
             String date = r.getDate();
             String[] d = date.split("/");
-            if (d[0].equals("" + year)) {
+            if (!vList.contains(v)) {
+                vList.add(v);
+            }
+            if (v.equals(virus)) {
                 int month = Integer.parseInt(d[1]) - 1;
                 reportNum[month]++;
             }

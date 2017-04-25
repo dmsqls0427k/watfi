@@ -26,10 +26,7 @@ public class ManagerMainActivity extends AppCompatActivity {
         menu.add("View Source Report");
         menu.add("Add Purity Report");
         menu.add("View Purity Report");
-<<<<<<< HEAD
         menu.add("Add Survey Report");
-=======
->>>>>>> fce46b4425e401d0f55e088633e67fa36b5fcbc9
         menu.add("View Survey Report");
         menu.add("Log out");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
@@ -52,11 +49,9 @@ public class ManagerMainActivity extends AppCompatActivity {
                 } else if (position == 4) {
                     startActivity(new Intent(ManagerMainActivity.this, viewPurityReport.class));
                 } else if (position == 5) {
-<<<<<<< HEAD
                     startActivity(new Intent(ManagerMainActivity.this, AddSurveyReport.class));
                 } else if (position == 6) {
-=======
->>>>>>> fce46b4425e401d0f55e088633e67fa36b5fcbc9
+
                     startActivity(new Intent(ManagerMainActivity.this, ViewSurveyReport.class));
                 } else {
                     startActivity(new Intent(ManagerMainActivity.this, LoginActivity.class));

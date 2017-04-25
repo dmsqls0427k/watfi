@@ -23,9 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nameText"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/dateText" />
 
     <TextView
         android:text="Date"
@@ -34,13 +34,6 @@
         android:layout_below="@+id/nameText"
         android:layout_alignParentStart="true"
         android:id="@+id/textView13" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentStart="true"
-        android:id="@+id/dateText" />
 
     <TextView
         android:text="Location"
@@ -66,15 +59,6 @@
         android:layout_below="@+id/locationEdit"
         android:layout_alignParentStart="true"
         android:id="@+id/textView12" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView12"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/conditionSpinner"
-        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -144,20 +128,34 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Contamination PPM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ffds"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/virusSpinner"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:text="Virus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Virus"
         android:layout_below="@+id/conditionSpinner"
         android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/conditionSpinner"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Contamination PPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ffds"
+        android:layout_below="@+id/virusSpinner"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateText"
+        android:layout_below="@+id/nameText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView17" />
 
 </RelativeLayout>
